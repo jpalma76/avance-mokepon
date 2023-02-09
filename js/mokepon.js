@@ -4,6 +4,12 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego() {
+    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
+    sectionSeleccionarAtaque.style.display = 'none'
+
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'none'
+
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
     
@@ -20,13 +26,18 @@ function iniciarJuego() {
 }
 
 function seleccionarMascotaJugador() {
+    let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota")
+    sectionSeleccionarMascota.style.display = 'none'
+
+    let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
+    sectionSeleccionarAtaque.style.display = 'block'
+
 
     let spanMascotaJugador = document.getElementById('mascota-jugador')
     
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatigueya = document.getElementById('ratigueya')
-
 
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = 'Hipodoge'
@@ -109,6 +120,7 @@ function revisarVidas() {
     } else if(vidasJugador == 0) {
         crearMensajeFinal('Lastima, haz perdido 💀💀💀')
     }
+    
 }
 
 function crearMensaje(resultado) {
@@ -133,6 +145,9 @@ function crearMensajeFinal(resultadoFinal) {
     botonFuego.disabled = true
     botonAgua.disabled = true
     botonTierra.disabled = true
+
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'block'
 }
 
 function reiniciarJuego() {
